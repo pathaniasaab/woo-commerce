@@ -24,6 +24,8 @@ define( 'DB_NAME', 'woo_commerce' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
+define("FS_method", "direct");
+
 
 /** Database password */
 define( 'DB_PASSWORD', '' );
