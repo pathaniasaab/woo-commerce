@@ -11286,3 +11286,17 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+
+
+.single_add_to_cart_button.button.alt {
+  background: #1d2327 !important;
+  font-size: 14px;
+}
+
+.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
+  background: #1d2327;
+  color: #fff;
+  font-size: 15px;
+}
