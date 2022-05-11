@@ -18,6 +18,7 @@ function simple_bootstrap_theme_nav_config(){
 	));
 	// add theme support
 	add_theme_support("post-thumbnails");
+	add_theme_support("woocommerce", array("thumbnail" => 150, "single_image_width" => 200, "product_grid" => array()));
 }
 add_action("after_setup_theme", "simple_bootstrap_theme_nav_config");
 
