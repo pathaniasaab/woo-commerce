@@ -13,7 +13,7 @@
         <?php wp_head(); ?>
     </head>
     <meta charset="<?php echo bloginfo('charset') ?>">
-    <body>
+    <body <?php body_class(); ?>>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">

@@ -18,8 +18,27 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+?>
+<div class="container owt-container ">
+	<div class="row owt-row">
+		<div class="col-sm-4">
+		<?php
+
 
 /**
+ * Hook: woocommerce_sidebar.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+do_action( 'woocommerce_sidebar' );
+?>
+	</div>
+		
+	<div class="col-sm-12">
+		
+		<?php
+
+		/**
  * Hook: woocommerce_before_main_content.
  *
  * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
@@ -94,12 +113,12 @@ if ( woocommerce_product_loop() ) {
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );
+		?>
+	</div>
+	
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
+</div>
+</div>
+<?php
 
 get_footer( 'shop' );
