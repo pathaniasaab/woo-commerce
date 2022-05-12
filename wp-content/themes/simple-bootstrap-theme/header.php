@@ -27,6 +27,26 @@
 			"items_wrap" => '<ul class ="navbar-nav ms-auto mb-2 mb-lg-0">%3$s</ul>'
 		))
 		?>
+
+        <?php
+        if (class_exists("woocommerce")) : 
+
+         ?>
+
+         <?php if(is_user_logged_in()) : ?>
+        <a class="btn btn-primary" href="<?php echo get_permalink(get_option("woocommerce_myaccount_page_id")) ?>">My Account</a>
+
+        <a class="btn btn-danger" style="margin-left: 10px;" href="<?php echo wp_logout_url(get_permalink(get_option("woocommerce_myaccount_page_id"))) ?>">Logout</a>
+
+        <?php  else : ?>
+        <a class="btn btn-primary" href="<?php echo get_permalink(get_option("woocommerce_myaccount_page_id")); ?>">Login/Register</a>
+
+    <?php endif; ?>
+        <a style="margin-left: 10px;"  href="<?php echo wc_get_cart_url(); ?>" class="btn btn-primary">Cart(<span class="items-count"><?php echo wc()->cart-> get_cart_contents_count();?></span>)</a>
+         <?php endif; ?>
+
+
+        
                    <!--  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
