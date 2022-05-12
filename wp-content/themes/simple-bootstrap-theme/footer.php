@@ -1,5 +1,5 @@
 <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white"><?php echo get_theme_mod("set_copyright", "Set your copyright content"); ?></p></div>
         </footer>
         
         <!-- Bootstrap core JS-->

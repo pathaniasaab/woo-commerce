@@ -29,6 +29,31 @@ if(have_posts()){
 }
 
                      ?>
+
+                     <div id="products-new-arrivals">
+                        <h3>New Arrivals</h3>
+                        <?php
+                        $new_arrival_limit = get_theme_mod("set_new_arrival_limit");
+                        $new_arrival_columns = get_theme_mod("set_new_arrival_column");
+
+                        ?>
+                         <?php echo do_shortcode('[products limit="'.$new_arrival_limit.'" columns="'.$new_arrival_columns.'" orderby="date" class="new-arrivals-custom-class"]'); ?>
+                     </div>
+
+                     <div id="products-popularity">
+                        <?php
+                        $popularity_limit = get_theme_mod("set_popular_limit");
+                        $popularity_columns = get_theme_mod("set_popular_columns");
+
+                        ?>
+                        <h3>Popularity</h3>
+                         <?php echo do_shortcode('[products limit="'.$popularity_limit.'" columns="'.$popularity_columns.'" orderby="popularity"]'); ?>
+                     </div>
+
+
+
+
+
                     
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
@@ -95,7 +120,7 @@ if(have_posts()){
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                       
+
                         <div class="card-header">Search</div>
                         <div class="card-body">
                             <?php

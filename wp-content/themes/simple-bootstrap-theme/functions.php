@@ -23,6 +23,14 @@ function simple_bootstrap_theme_nav_config(){
 "min_columns" => 2,
 "max_columns" => 3)));
 
+	add_theme_support("custom-logo", [
+
+		"width" => 90,
+		"height" => 90,
+		"flex_height" => true,
+		"flex_width" => true
+	]);
+
 	// product thumbnail effect support
 	add_theme_support("wc-product-gallery-zoom");
 	add_theme_support("wc-product-gallery-lightbox");
@@ -120,3 +128,102 @@ function simple_bootstrap_theme_woocommerce_header_add_to_cart_fragment( $fragme
 	$fragments['span.items-count'] = ob_get_clean();
 	return $fragments;
 }
+
+function simple_bootstrap_theme_load_wp_customizer($wp_customize){
+	// customizer code
+	// adding section
+	$wp_customize->add_section("sec_copyright", array(
+		"title" => "Copyright Section",
+		"description" => "This is a copyright section"
+		
+		
+	));
+
+	
+
+// adding a setting
+	$wp_customize->add_setting("set_copyright", array(
+		"type" => "theme_mod",
+		"default" => "This is a copyright section",
+		"sanitize_callback" => "sanitize_text_field",
+		));
+
+		//add control
+	$wp_customize->add_control("set_copyright", array(
+		"label" => "copyright",
+		"description" => "please fill the copyright text",
+		"section" => "sec_copyright",
+		"type" => "text",
+		));
+
+	//section of new arrivals/popularity
+
+
+	$wp_customize->add_section("sec_product_panel", array(
+		"title" => "Product panel limit & columns",
+		"description" => "This is a product control panels"
+		
+		
+	));
+
+	
+
+// adding a setting
+	$wp_customize->add_setting("set_new_arrival_limit", array(
+		"type" => "theme_mod",
+		"default" => "",
+		"sanitize_callback" => "absint",
+		));
+
+		//add control
+	$wp_customize->add_control("set_new_arrival_limit", array(
+		"label" => "New Arrival - product limit",
+		"description" => "please provide the limit for new arrival",
+		"section" => "sec_product_panel",
+		"type" => "number",
+		));
+
+	$wp_customize->add_setting("set_new_arrival_column", array(
+		"type" => "theme_mod",
+		"default" => "",
+		"sanitize_callback" => "absint",
+		));
+
+		//add control
+	$wp_customize->add_control("set_new_arrival_column", array(
+		"label" => "New Arrival - product column",
+		"description" => "please provide the column for new arrival",
+		"section" => "sec_product_panel",
+		"type" => "number",
+		));
+
+	$wp_customize->add_setting("set_popular_limit", array(
+		"type" => "theme_mod",
+		"default" => "",
+		"sanitize_callback" => "absint",
+		));
+
+		//add control
+	$wp_customize->add_control("set_popular_limit", array(
+		"label" => "Popularity - popular limit",
+		"description" => "please provide the column for popularity",
+		"section" => "sec_product_panel",
+		"type" => "number",
+		));
+
+	$wp_customize->add_setting("set_popular_columns", array(
+		"type" => "theme_mod",
+		"default" => "",
+		"sanitize_callback" => "absint",
+		));
+
+		//add control
+	$wp_customize->add_control("set_popular_columns", array(
+		"label" => "Popularity - popular column",
+		"description" => "please provide the column for popularity",
+		"section" => "sec_product_panel",
+		"type" => "number",
+		));
+}
+
+add_action ("customize_register", "simple_bootstrap_theme_load_wp_customizer");
